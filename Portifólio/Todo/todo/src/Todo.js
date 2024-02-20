@@ -1,27 +1,38 @@
 import React, { useState } from "react";
+import List from './List';
 import './Todo.css';
 
 export default function Todo() {
-    const [item, setItem] = useState('')
+    const [text, setText] = useState('')
+    const [items, setItem] = useState([])
+
 
     function handleChange(event) {
-        event.preventDefault()
-        const valueOne = event.target.value;
-        setItem(valueOne)
+        const textItems = event.target.value;
+        setText(textItems)
+
     };
+    
+    function addItem(event) {
+        event.preventDefault();
+        if(text) {
+            setItem([...items, text])
+            setText('')
+        }
+    }
     return(
         <div className="container">
         <h1>Todo</h1>
         <form>
-            <input onClick={handleChange}  type="text"></input>
-            <button>ADD</button>
+            <input placeholder="Adicione seu Item" onChange={handleChange}  type="text" value={text}></input>
+            <button onClick={addItem}>ADD</button>
         </form>
 
-        <ul>
-            <li>{item}</li>
-        </ul>
+       <List items={items}></List>
 
 
         </div>
+
+    
     )
 }
