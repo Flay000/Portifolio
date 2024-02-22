@@ -8,6 +8,9 @@ export default function Todo() {
 
     function onAddItem(item) {
         setItems([...items, item])
+        // aqui o setItems esta salvando o ITEM(PARAMETRO) dentro dos ITEM
+        //e tambem esta criando um objeto por meio do OPERADOR SPREAD(...) e adicionando o
+        // novo item ao final do objeto de ITEMS
     }
 
     return(

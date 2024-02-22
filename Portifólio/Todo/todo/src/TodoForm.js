@@ -14,6 +14,8 @@ function TodoForm(props) {
                 if(text) {
                     // setItem([...items, text])
                     props.onAddItem(text)
+                    // o componente FILHO HERDA as props do COMPONENTE PAI sem precisar importalas
+        
                     setText('')
                 }
             }
